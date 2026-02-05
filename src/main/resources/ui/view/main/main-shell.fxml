@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<VBox fx:id="rootPane" alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+    <!-- title component -->
+    <fx:include source="../../component/title-bar.fxml" />
+    <!-- content component-->
+    <Label style="-fx-opacity: 1;-fx-text-fill: white;" text="메모장 테스틍ㅁ  -> == ㄴㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇ"/>
+</VBox>

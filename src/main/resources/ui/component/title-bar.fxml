@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.hyunbindev.minimo.ui.component.TitleBarController"
+      onMousePressed="#handleMousePressed"
+      onMouseDragged="#handleMouseDragged">
+
+    <Button styleClass="close-icon-button"
+            onMouseClicked="#handleClose">
+        <padding>
+            <Insets top="8" right="8" bottom="8" left="8"/>
+        </padding>
+        <graphic><Region styleClass="icon-close"/></graphic>
+    </Button>
+
+</HBox>

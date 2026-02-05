@@ -26,7 +26,7 @@ application {
     mainClass.set("com.hyunbindev.minimo.HelloApplication")
 }
 kotlin {
-    jvmToolchain(11)
+    jvmToolchain(21)
 }
 
 javafx {
