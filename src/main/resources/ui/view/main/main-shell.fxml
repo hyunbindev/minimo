@@ -5,9 +5,12 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import com.hyunbindev.minimo.component.tab.TabButton?>
 <VBox fx:id="rootPane" alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
     <!-- title component -->
     <fx:include source="../../component/title-bar.fxml" />
+    <fx:include source="../../component/tab/memo-tab.fxml" />
+
     <!-- content component-->
     <Label style="-fx-opacity: 1;-fx-text-fill: white;" text="메모장 테스틍ㅁ  -> == ㄴㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇ"/>
 </VBox>

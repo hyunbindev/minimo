@@ -27,11 +27,7 @@ class MainApplication : Application() {
         val fxmlLoader = FXMLLoader(MainApplication::class.java.getResource("/ui/view/main/main-shell.fxml"))
         val root = fxmlLoader.load<Parent>()
 
-        val scene = Scene(root, 320.0, 240.0, Color.TRANSPARENT);
-
-        //css load
-        //val cssPath = javaClass.getResource("/css/global.css")?.toExternalForm()
-        //if(cssPath != null) {scene.stylesheets.add(cssPath) }
+        val scene = Scene(root, 600.0, 800.0, Color.TRANSPARENT);
 
         scene.stylesheets.addAll(
             javaClass.getResource("/css/global.css")?.toExternalForm(),
@@ -40,7 +36,7 @@ class MainApplication : Application() {
 
         stage.initStyle(StageStyle.TRANSPARENT)
 
-        stage.title = "Hello!"
+        stage.title = "MiniMo"
         stage.scene = scene
         stage.show()
     }
