@@ -11,7 +11,7 @@
 <?import com.hyunbindev.minimo.component.tab.TabFrame?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.hyunbindev.minimo.ui.component.TitleBarController"
+      fx:controller="com.hyunbindev.minimo.controller.component.TitleBarController"
       alignment="CENTER_LEFT"
       onMousePressed="#handleMousePressed"
       onMouseDragged="#handleMouseDragged">
@@ -24,15 +24,20 @@
         <graphic><Region styleClass="icon-close"/></graphic>
     </Button>
 
-    <Button styleClass="pin-icon-button"
+    <ToggleButton styleClass="pin-icon-button"
             onMouseClicked="#toggleWindowPin">
         <padding>
             <Insets top="15" right="15" bottom="15" left="15"/>
         </padding>
         <graphic><Region styleClass="icon-pin"/></graphic>
-    </Button>
+    </ToggleButton>
 
     <!--  탭들 들어갈꺼임  -->
     <TabFrame>
+
     </TabFrame>
+    <Button styleClass="TabAdd-Btn"
+            onMouseClicked="#createTab">
+        <graphic><Region styleClass="icon-tab-add"/></graphic>
+    </Button>
 </HBox>

@@ -1,6 +1,5 @@
 package com.hyunbindev.minimo.component.tab
 
-import com.hyunbindev.minimo.core.TabManager
 import javafx.fxml.FXMLLoader
 import javafx.scene.control.Button
 import javafx.scene.control.ToggleButton
@@ -24,6 +23,6 @@ class TabButton @JvmOverloads constructor(
         }
     }
     private fun handleTabClick(){
-        TabManager.selectTab(this)
+
     }
 }

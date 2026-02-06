@@ -3,7 +3,7 @@ module com.hyunbindev.minimo {
     requires javafx.fxml;
     requires javafx.web;
     requires kotlin.stdlib;
-
+    requires org.slf4j;
     requires org.controlsfx.controls;
     requires eu.hansolo.tilesfx;
 

@@ -18,6 +18,11 @@
     -fx-max-width: 12px;
     -fx-max-height: 12px;
 }
+
+.pin-icon-button:selected .icon-pin {
+    -fx-background-color: #FFD700;
+}
+
 .pin-icon-button{
     -fx-border-color: transparent;
     -fx-background-color: transparent;
@@ -38,4 +43,16 @@
 
 .close-icon-button:hover{
     -fx-background-color: rgba(232, 17, 35, 0.5);
+}
+
+.icon-tab-add{
+    -fx-shape: "M440-120v-320H120v-80h320v-320h80v320h320v80H520v320h-80Z";
+    -fx-background-color: #ffffff;
+    -fx-min-width: 12px;
+    -fx-min-height: 12px;
+    -fx-max-width: 12px;
+    -fx-max-height: 12px;
+}
+.icon-tab-add:hover{
+
 }
