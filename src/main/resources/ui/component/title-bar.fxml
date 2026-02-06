@@ -8,6 +8,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import com.hyunbindev.minimo.component.tab.TabButton?>
+<?import com.hyunbindev.minimo.component.tab.TabFrame?>
 <HBox xmlns="http://javafx.com/javafx"
       xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.hyunbindev.minimo.ui.component.TitleBarController"
@@ -32,6 +33,6 @@
     </Button>
 
     <!--  탭들 들어갈꺼임  -->
-    <TabButton text="새로운 탭"/>
-    <TabButton text="새로운 탭"/>
+    <TabFrame>
+    </TabFrame>
 </HBox>

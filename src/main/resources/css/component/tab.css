@@ -1,3 +1,10 @@
+.Tab-Frame{
+    -fx-background-color: transparent;
+    -fx-padding: 8 15 8 15;
+    -fx-alignment: CENTER_RIGHT;
+    -fx-max-width: infinity;
+}
+
 .Tab-Btn{
     -fx-border-radius: 5;
     -fx-background-color: transparent;
@@ -12,7 +19,7 @@
     -fx-background-color: rgba(255, 255, 255, 0.2);
 }
 
-.Tab-Btn-Selected{
+.Tab-Btn:selected{
     -fx-background-color: rgba(255, 255, 255, 0.2);
     -fx-border-color: white;
     -fx-border-width: 1;
@@ -22,5 +29,4 @@
     -fx-padding: 8 15 8 15;
     -fx-min-width: 80;
     -fx-alignment: CENTER_LEFT;
-
 }
