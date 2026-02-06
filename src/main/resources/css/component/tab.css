@@ -3,6 +3,7 @@
     -fx-padding: 8 15 8 15;
     -fx-alignment: CENTER_RIGHT;
     -fx-max-width: infinity;
+    -fx-spacing: 3;
 }
 
 .Tab-Btn{
@@ -13,6 +14,8 @@
     -fx-min-width: 80;
     -fx-alignment: CENTER_LEFT;
     -fx-max-width: 160;
+    -fx-border-width: 1;
+    -fx-border-color: transparent;
 }
 
 .Tab-Btn:hover{
@@ -21,7 +24,7 @@
 
 .Tab-Btn:selected{
     -fx-background-color: rgba(255, 255, 255, 0.2);
-    -fx-border-color: white;
+    -fx-border-color: rgba(255, 255, 255, 0.5);
     -fx-border-width: 1;
     -fx-border-style: solid;
     -fx-border-radius: 5;

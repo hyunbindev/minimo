@@ -23,7 +23,7 @@ tasks.withType<JavaCompile> {
 
 application {
     mainModule.set("com.hyunbindev.minimo")
-    mainClass.set("com.hyunbindev.minimo.HelloApplication")
+    mainClass.set("com.hyunbindev.minimo.Launcher.kt")
 }
 kotlin {
     jvmToolchain(21)
@@ -38,10 +38,16 @@ dependencies {
     //controls fx
     implementation("org.controlsfx:controlsfx:11.2.1")
 
-    /**
-     * imbedded data base sql lite
-     */
+    //sql lite driver
     implementation("org.xerial:sqlite-jdbc:3.45.1.0")
+
+    // 1. Exposed Core (DSL & DAO 지원)
+    implementation("org.jetbrains.exposed:exposed-core:0.59.0")
+    implementation("org.jetbrains.exposed:exposed-dao:0.59.0")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.59.0")
+
+    // 2. 날짜/시간 처리를 위한 Java 8 Time 확장 (LocalDateTime용)
+    implementation("org.jetbrains.exposed:exposed-java-time:0.59.0")
 
     implementation("eu.hansolo:tilesfx:21.0.9") {
         exclude(group = "org.openjfx")
