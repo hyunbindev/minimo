@@ -21,7 +21,7 @@
         <graphic><Region styleClass="icon-close"/></graphic>
     </Button>
     <Button styleClass="pin-icon-button"
-            >
+            onMouseClicked="#toggleWindowPin">
         <padding>
             <Insets top="7" right="7" bottom="7" left="7"/>
         </padding>

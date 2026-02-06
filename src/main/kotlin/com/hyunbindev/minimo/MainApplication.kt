@@ -1,5 +1,6 @@
 package com.hyunbindev.minimo
 
+import com.hyunbindev.minimo.core.WindowManager
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
@@ -11,7 +12,8 @@ import javafx.stage.StageStyle
 
 class MainApplication : Application() {
     override fun start(stage: Stage) {
-
+        //window manager init
+        WindowManager.init(stage)
         //get font resource
         val fontStream = javaClass.getResource("/fonts/defaultFont.ttf")?.toExternalForm()
 

@@ -1,10 +1,12 @@
 package com.hyunbindev.minimo.ui.component
 
+import com.hyunbindev.minimo.core.WindowManager
 import javafx.fxml.FXML
 import javafx.scene.Node
 import javafx.scene.input.MouseEvent
 import javafx.scene.layout.HBox
 import javafx.stage.Stage
+import javafx.stage.Window
 
 class TitleBarController {
     private var xOffset: Double = 0.0;
@@ -28,8 +30,10 @@ class TitleBarController {
 
     @FXML
     fun handleClose(event: MouseEvent) {
-        val button = event.source as javafx.scene.Node
-        val stage = button.scene.window as Stage
-        stage.close()
+        WindowManager.windowClose()
+    }
+    @FXML
+    fun toggleWindowPin(event: MouseEvent) {
+        WindowManager.toggleAlwaysOnTop()
     }
 }
