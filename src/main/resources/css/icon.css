@@ -1,0 +1,41 @@
+.icon-close {
+    -fx-shape: "m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z";
+
+    -fx-background-color: #ffffff;
+
+    -fx-min-width: 12px;
+    -fx-min-height: 12px;
+    -fx-max-width: 12px;
+    -fx-max-height: 12px;
+}
+.icon-pin {
+    -fx-shape: "m260-80-40-40v-160H80v-80l60-106v-94H80v-80h360v80h-60v94l60 106v80H300v160l-40 40Zm220-80v-80h320v-480H80q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H480ZM172-360h176l-48-84v-116h-80v116l-48 84Zm88 0Z";
+
+    -fx-background-color: #ffffff;
+
+    -fx-min-width: 12px;
+    -fx-min-height: 12px;
+    -fx-max-width: 12px;
+    -fx-max-height: 12px;
+}
+.pin-icon-button{
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.pin-icon-button:hover{
+    -fx-background-color: rgba(232, 196, 17, 0.5);
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.close-icon-button {
+    -fx-background-radius: 10 0 0 0;
+    -fx-border-radius: 0;
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.close-icon-button:hover{
+    -fx-background-color: rgba(232, 17, 35, 0.5);
+}

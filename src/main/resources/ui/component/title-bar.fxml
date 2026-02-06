@@ -16,9 +16,16 @@
     <Button styleClass="close-icon-button"
             onMouseClicked="#handleClose">
         <padding>
-            <Insets top="8" right="8" bottom="8" left="8"/>
+            <Insets top="7" right="7" bottom="7" left="8"/>
         </padding>
         <graphic><Region styleClass="icon-close"/></graphic>
+    </Button>
+    <Button styleClass="pin-icon-button"
+            >
+        <padding>
+            <Insets top="7" right="7" bottom="7" left="7"/>
+        </padding>
+        <graphic><Region styleClass="icon-pin"/></graphic>
     </Button>
 
 </HBox>

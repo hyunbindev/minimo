@@ -18,7 +18,6 @@ class MainApplication : Application() {
         if(fontStream != null) {
             Font.loadFont(fontStream,12.0)
             val loadedFont: Font? = Font.loadFont(fontStream, 14.0)
-            println("디버그 - 로드된 폰트 패밀리 이름: ${loadedFont?.family}")
         }else{
             throw RuntimeException("Could not load font")
         }
@@ -28,8 +27,14 @@ class MainApplication : Application() {
 
         val scene = Scene(root, 320.0, 240.0, Color.TRANSPARENT);
 
-        val cssPath = javaClass.getResource("/css/style.css")?.toExternalForm()
-        if(cssPath != null) {scene.stylesheets.add(cssPath) }
+        //css load
+        //val cssPath = javaClass.getResource("/css/global.css")?.toExternalForm()
+        //if(cssPath != null) {scene.stylesheets.add(cssPath) }
+
+        scene.stylesheets.addAll(
+            javaClass.getResource("/css/global.css")?.toExternalForm(),
+            javaClass.getResource("/css/icon.css")?.toExternalForm()
+        )
 
         stage.initStyle(StageStyle.TRANSPARENT)
 

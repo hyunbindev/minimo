@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'D2Coding';
+    src: url('../fonts/defaultFont.ttf');
+}
+
+.root {
+    -fx-font-family: 'D2Coding';
+}
+
+
+.label, .button, .text-area, .text {
+    -fx-font-family: 'D2Coding';
+}
+
+
+#rootPane{
+    -fx-background-color: rgba(30, 31, 34, 0.97);
+    -fx-background-radius: 10;
+    -fx-border-radius: 10;
+}
