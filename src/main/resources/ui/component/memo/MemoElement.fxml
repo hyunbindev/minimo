@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.TextFlow?>
+<fx:root type="javafx.scene.layout.VBox"
+         xmlns:fx="http://javafx.com/fxml"
+         spacing="5"
+         styleClass="Memo-Element">
+    <TextFlow fx:id="content"/>
+    <Label fx:id="updatedAt"/>
+</fx:root>

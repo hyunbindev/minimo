@@ -1,5 +1,6 @@
 package com.hyunbindev.minimo.component.tab
 
+import com.hyunbindev.minimo.model.tab.TabData
 import com.hyunbindev.minimo.viewmodel.TabViewModel
 import javafx.collections.ListChangeListener
 import javafx.fxml.FXMLLoader
@@ -11,31 +12,44 @@ class TabFrame @JvmOverloads constructor(): HBox() {
         val loader = FXMLLoader(javaClass.getResource("/ui/component/tab/TabFrame.fxml"))
         loader.setRoot(this)
         loader.setController(this)
+        reRenderTabs()
+        loader.load<Any>()
         setupListListener()
-        try {
-            loader.load<Any>()
-        }catch (e: Exception){
-            throw RuntimeException("Exception occurred while loading tab frame", e)
-        }
     }
     private fun setupListListener() {
-        TabViewModel.tabList.addListener(ListChangeListener {
-            renderTabs()
+        TabViewModel.tabList.addListener(ListChangeListener { change ->
+            javafx.application.Platform.runLater {
+                while (change.next()) {
+                    if (change.wasAdded()) {
+                        change.addedSubList.forEach { addTabUI(it) }
+                    }
+                    if (change.wasRemoved()) {
+                        change.removed.forEach { removeTabUI(it) }
+                    }
+                }
+            }
         })
-        renderTabs()
     }
 
-    private fun renderTabs() {
+    private fun reRenderTabs() {
         javafx.application.Platform.runLater {
             this.children.clear()
 
             TabViewModel.tabList.forEach { tabData ->
-                val tabButton = TabButton(tabData.title).apply {
-                    //TODO-변화 감지후 실행 로직
-                    setOnAction {  }
-                }
+                val tabButton = TabButton(tabData)
                 this.children.add(tabButton)
             }
+        }
+    }
+
+    private fun addTabUI(tabData: TabData) {
+        val tabButton = TabButton(tabData)
+        this.children.add(tabButton)
+    }
+
+    private fun removeTabUI(tabData: TabData) {
+        this.children.removeIf { node ->
+            (node as? TabButton)?.tabData?.id == tabData.id
         }
     }
 }

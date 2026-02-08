@@ -1,0 +1,17 @@
+.SideBar-Container{
+    -fx-padding: 5;
+}
+
+.SideBar-Container .button {
+    -fx-background-color: transparent;
+    -fx-border-radius: 50;
+    -fx-background-radius: 10;
+    -fx-alignment: CENTER;
+    -fx-min-width: 40;
+    -fx-min-height: 40;
+}
+
+
+.SideBar-Container .button:hover {
+    -fx-background-color: rgba(32, 37, 41, 0.9);
+}

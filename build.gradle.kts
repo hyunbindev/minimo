@@ -49,6 +49,11 @@ dependencies {
     // 2. 날짜/시간 처리를 위한 Java 8 Time 확장 (LocalDateTime용)
     implementation("org.jetbrains.exposed:exposed-java-time:0.59.0")
     implementation("org.slf4j:slf4j-api:2.0.9")
+    implementation("ch.qos.logback:logback-classic:1.5.13")
+
+    implementation("net.java.dev.jna:jna:5.14.0")
+    implementation("net.java.dev.jna:jna-platform:5.14.0")
+
     implementation("eu.hansolo:tilesfx:21.0.9") {
         exclude(group = "org.openjfx")
     }

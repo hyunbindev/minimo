@@ -1,5 +1,6 @@
 package com.hyunbindev.minimo.model
 
+import com.hyunbindev.minimo.model.memo.MemoTable
 import com.hyunbindev.minimo.model.tab.TabTable
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
@@ -13,6 +14,7 @@ object DatabaseFactory {
         // 테이블 생성 및 업데이트 (단수형 TabTable 사용)
         transaction {
             SchemaUtils.create(TabTable)
+            SchemaUtils.create(MemoTable)
         }
     }
 }

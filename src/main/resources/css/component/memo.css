@@ -1,0 +1,47 @@
+.Memo-Scroll{
+    -fx-background-color: transparent;
+    -fx-background: transparent;
+    -fx-padding: 5;
+}
+.Memo-Element {
+    -fx-background-color: rgba(32, 37, 41, 0.9); /* rgb -> rgba 로 변경 */
+    -fx-border-radius: 10;
+    -fx-background-radius: 10; /* 배경 모서리도 깎아야 합니다 */
+    -fx-padding: 20;
+}
+.Memo-Element:hover {
+    -fx-background-color: rgba(40, 45, 50, 1);
+}
+.Memo-Scroll .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-width: 3; /* 스크롤바 폭을 슬림하게 */
+}
+
+/* 2. 스크롤 막대 (Thumb) */
+.Memo-Scroll .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.1); /* 평소엔 아주 은은하게 */
+    -fx-background-insets: 2;
+    -fx-background-radius: 10;
+}
+
+/* 3. 마우스 올렸을 때 막대 색상 */
+.Memo-Scroll .scroll-bar:vertical:hover .thumb {
+    -fx-background-color: rgba(255, 255, 255, 0.3); /* 조금 더 선명하게 */
+}
+
+/* 4. 위아래 화살표 버튼 제거 (요즘 트렌드) */
+.Memo-Scroll .scroll-bar .increment-button,
+.Memo-Scroll .scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+    -fx-padding: 0;
+}
+
+.Memo-Scroll .scroll-bar .increment-arrow,
+.Memo-Scroll .scroll-bar .decrement-arrow {
+    -fx-shape: " "; /* 화살표 모양을 공백으로 대체 */
+    -fx-padding: 0;
+}
+.Memo-Element .memo-text{
+    -fx-fill: white;
+    -fx-font-size: 16px;
+}

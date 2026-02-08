@@ -1,4 +1,6 @@
 @import "/css/component/tab.css";
+@import "/css/component/memo.css";
+@import "/css/component/sidebar.css";
 
 @font-face {
     font-family: 'D2Coding';
@@ -16,7 +18,7 @@
 
 
 #rootPane{
-    -fx-background-color: rgba(30, 31, 34, 0.97);
+    -fx-background-color: rgba(50, 56, 61, 0.97);
     -fx-background-radius: 10;
     -fx-border-radius: 10;
 }

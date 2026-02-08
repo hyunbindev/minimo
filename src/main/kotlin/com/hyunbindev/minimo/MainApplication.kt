@@ -1,7 +1,11 @@
 package com.hyunbindev.minimo
 
+import com.hyunbindev.minimo.core.ClipboardCaptureManager
+import com.hyunbindev.minimo.core.ClipboardMonitor
 import com.hyunbindev.minimo.core.WindowManager
 import com.hyunbindev.minimo.model.DatabaseFactory
+import com.hyunbindev.minimo.viewmodel.MemoViewModel
+import com.hyunbindev.minimo.viewmodel.TabViewModel
 import javafx.application.Application
 import javafx.fxml.FXMLLoader
 import javafx.scene.Parent
@@ -10,15 +14,19 @@ import javafx.scene.paint.Color
 import javafx.scene.text.Font
 import javafx.stage.Stage
 import javafx.stage.StageStyle
+import org.slf4j.LoggerFactory
 
 class MainApplication : Application() {
+    private val log = LoggerFactory.getLogger(javaClass)
     override fun init() {
         super.init()
         DatabaseFactory.init()
+        TabViewModel.initialize()
+        MemoViewModel.initialize()
+        ClipboardCaptureManager.initialize()
     }
 
     override fun start(stage: Stage) {
-
         //window manager init
         WindowManager.init(stage)
         //get font resource

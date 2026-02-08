@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.control.ScrollPane"
+         xmlns:fx="http://javafx.com/fxml"
+         fx:id="memoScroll"
+         HBox.hgrow="ALWAYS"
+         maxWidth="Infinity"
+         maxHeight="Infinity"
+         fitToWidth="true"
+         fitToHeight="true"
+         styleClass="Memo-Scroll">
+    <VBox fx:id="container"
+          maxWidth="Infinity"
+          spacing="5">
+
+    </VBox>
+</fx:root>

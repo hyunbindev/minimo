@@ -1,16 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<?import javafx.scene.control.Button?>
-<?import com.hyunbindev.minimo.component.tab.TabButton?>
-<VBox fx:id="rootPane" alignment="TOP_CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml">
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import com.hyunbindev.minimo.component.memo.MemoList?>
+<?import com.hyunbindev.minimo.component.SideMenuBar?>
+<VBox fx:id="rootPane" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml">
     <!-- title component -->
     <fx:include source="../../component/title-bar.fxml" />
-    <fx:include source="../../component/tab/memo-tab.fxml" />
 
     <!-- content component-->
-    <Label style="-fx-opacity: 1;-fx-text-fill: white;" text="메모장 테스틍ㅁ  -> == ㄴㄻㄴㅇㄻㄴㅇㄻㄴㅇㄻㄴㅇ"/>
+    <HBox VBox.vgrow="ALWAYS" spacing="10" style="-fx-padding: 10;">
+
+        <!--     좌측 메뉴   -->
+        <SideMenuBar/>
+
+        <!--   메모 리스트     -->
+        <MemoList/>
+    </HBox>
+
 </VBox>
