@@ -60,7 +60,10 @@ object ClipboardCaptureManager {
         )
 
         if (processHandle != null) {
+            val buffer = CharArray(1024)
             Psapi.INSTANCE.GetModuleFileNameExW(processHandle, null, buffer, buffer.size)
+            val len = Psapi.INSTANCE.GetModuleFileNameExW(processHandle, null, buffer, buffer.size)
+
             val fullPath = String(buffer).trim { it <= ' ' }
             val file = File(fullPath)
 
