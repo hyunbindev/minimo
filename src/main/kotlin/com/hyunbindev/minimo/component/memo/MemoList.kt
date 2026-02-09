@@ -8,8 +8,10 @@ import javafx.animation.KeyValue
 import javafx.animation.Timeline
 import javafx.application.Platform
 import javafx.collections.ListChangeListener
+import javafx.collections.ObservableList
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
+import javafx.scene.Node
 import javafx.scene.control.ScrollPane
 import javafx.scene.layout.VBox
 import javafx.util.Duration
@@ -34,16 +36,36 @@ class MemoList : ScrollPane(){
     private fun setupMemoListListener() {
         MemoViewModel.memoList.addListener(ListChangeListener { change ->
             val addedItems = mutableListOf<MemoData>()
+            val removedItems = mutableListOf<MemoData>()
             while (change.next()) {
                 if (change.wasAdded()) {
                     addedItems.addAll(change.addedSubList)
                 }
-                //TODO- 삭제 로직도
+
+                if (change.wasRemoved()){
+                    removedItems.addAll(change.removed)
+                }
             }
 
             if (addedItems.isNotEmpty()) {
                 Platform.runLater {
                     addedItems.forEach { addMemoElementUI(it) }
+                }
+            }
+
+            if (removedItems.isNotEmpty()) {
+                log.info("${removedItems.size} removed item(s)")
+                Platform.runLater {
+                    // Get all current UI children that are MemoElements
+                    val memoElements = this.container.children.filterIsInstance<MemoElement>()
+
+                    // Find the UI elements whose ID matches an ID in the removedItems list
+                    val elementsToRemove = memoElements.filter { element ->
+                        removedItems.any { removed -> removed.id == element.memoData.id }
+                    }
+
+                    // Remove them from the parent container
+                    this.container.children.removeAll(elementsToRemove)
                 }
             }
         })

@@ -5,6 +5,8 @@ import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
 import javafx.scene.control.Label
+import javafx.scene.input.Clipboard
+import javafx.scene.input.ClipboardContent
 import javafx.scene.layout.VBox
 import javafx.scene.text.Text
 import javafx.scene.text.TextFlow
@@ -35,5 +37,15 @@ class MemoElement(val memoData: MemoData) : VBox() {
         // 5줄 제한 설정 (예: 14px 폰트 기준 약 100px)
         // 실제 폰트 크기에 맞춰 조정하세요.
         this.content.maxHeight = 100.0
+
+        this.setOnMouseClicked {
+            event ->
+                val clipboard = Clipboard.getSystemClipboard()
+                val content = ClipboardContent()
+
+                // 메모의 전체 내용을 클립보드에 설정
+                content.putString(memoData.content)
+                clipboard.setContent(content)
+        }
     }
 }

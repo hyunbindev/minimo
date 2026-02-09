@@ -39,6 +39,7 @@ class TabButton (val tabData: TabData): ToggleButton() {
         TabViewModel.selectedTabId.addListener { _, _, newId ->
             this.isSelected = tabData.id == newId
         }
+        
         this.titleLabel.text = tabData.title
 
         playSpawnAnimation()

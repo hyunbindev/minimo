@@ -15,7 +15,7 @@ object TabViewModel {
 
     fun initialize(){
         loadAllTab()
-        val initialId = if (tabList.size > 1) tabList[0].id else -1
+        val initialId = if (tabList.isNotEmpty()) tabList[0].id else -1
         selectedTabId.set(initialId)
     }
 
@@ -36,5 +36,4 @@ object TabViewModel {
         TabService.deleteTab(tabId)
         this.tabList.removeIf { it.id == tabId }
     }
-
 }

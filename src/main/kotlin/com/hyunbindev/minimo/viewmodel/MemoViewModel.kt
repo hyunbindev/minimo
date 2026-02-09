@@ -6,6 +6,7 @@ import com.hyunbindev.minimo.service.MemoService
 import javafx.collections.FXCollections
 import javafx.collections.ObservableList
 import org.slf4j.LoggerFactory
+import java.util.function.UnaryOperator
 
 object MemoViewModel {
     private val log = LoggerFactory.getLogger(MemoViewModel::class.java)
@@ -15,6 +16,10 @@ object MemoViewModel {
     fun initialize(){
         val selectedTabId:Int = TabViewModel.selectedTabId.get()
         memoList.addAll(MemoService.getMemoByTabId(selectedTabId))
+
+        TabViewModel.selectedTabId.addListener { _, _, selectedId ->
+            memoList.setAll(MemoService.getMemoByTabId(selectedId.toInt()))
+        }
     }
 
     fun createMemoByClip(clip: ClipBoardData){

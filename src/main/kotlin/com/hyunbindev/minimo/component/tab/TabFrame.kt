@@ -16,6 +16,7 @@ class TabFrame @JvmOverloads constructor(): HBox() {
         loader.load<Any>()
         setupListListener()
     }
+
     private fun setupListListener() {
         TabViewModel.tabList.addListener(ListChangeListener { change ->
             javafx.application.Platform.runLater {
