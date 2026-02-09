@@ -9,5 +9,8 @@
          spacing="5"
          styleClass="Memo-Element">
     <TextFlow fx:id="content" prefWidth="0" maxWidth="Infinity"/>
-    <Label fx:id="updatedAt"/>
+    <Label fx:id="updatedAt"
+           maxWidth="Infinity"
+           alignment="CENTER_RIGHT"
+           style="-fx-padding: 20 0 0 0; -fx-text-fill: #888888; -fx-font-size: 0.9em;"/>
 </fx:root>

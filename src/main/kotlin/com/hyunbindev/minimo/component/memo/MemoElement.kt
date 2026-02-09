@@ -1,6 +1,7 @@
 package com.hyunbindev.minimo.component.memo
 
 import com.hyunbindev.minimo.model.memo.MemoData
+import com.hyunbindev.minimo.utill.DateUtil
 import javafx.application.Platform
 import javafx.fxml.FXML
 import javafx.fxml.FXMLLoader
@@ -26,16 +27,12 @@ class MemoElement(val memoData: MemoData) : VBox() {
 
 
         val textNode = Text(memoData.content).apply {
-            // 부모인 TextFlow의 스타일에 맞추기 위해
-            // 폰트나 색상을 명시적으로 지정하거나 CSS를 사용합니다.
             styleClass.add("memo-text")
         }
 
         this.content.children.add(textNode)
-        this.updatedAt.text = memoData.updatedAt.toString()
+        memoData.updatedAt?.let { this.updatedAt.text = DateUtil.fromLocalDateTimeToFormatString(it) }
 
-        // 5줄 제한 설정 (예: 14px 폰트 기준 약 100px)
-        // 실제 폰트 크기에 맞춰 조정하세요.
         this.content.maxHeight = 100.0
 
         this.setOnMouseClicked {
