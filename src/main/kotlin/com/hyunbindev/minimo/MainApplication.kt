@@ -27,8 +27,6 @@ class MainApplication : Application() {
     }
 
     override fun start(stage: Stage) {
-        //window manager init
-        WindowManager.init(stage)
         //get font resource
         val fontStream = javaClass.getResource("/fonts/defaultFont.ttf")?.toExternalForm()
 
@@ -54,5 +52,6 @@ class MainApplication : Application() {
         stage.title = "MiniMo"
         stage.scene = scene
         stage.show()
+        WindowManager.init(stage)
     }
 }
