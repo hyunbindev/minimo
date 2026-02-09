@@ -15,7 +15,7 @@ object ClipboardMonitor {
 
     private val log = LoggerFactory.getLogger(ClipboardMonitor::class.java)
 
-    // 1. User32 인터페이스 확장 (없는 함수 추가)
+
     interface ExtendedUser32 : User32 {
         companion object {
             val INSTANCE = Native.load("user32", ExtendedUser32::class.java, W32APIOptions.DEFAULT_OPTIONS) as ExtendedUser32
@@ -28,7 +28,6 @@ object ClipboardMonitor {
         thread(isDaemon = true) {
             val user32 = ExtendedUser32.INSTANCE
 
-            // 2. 메시지 수신용 보이지 않는 창 생성
             val hwnd = user32.CreateWindowEx(
                 0, "Static", "ClipWatcher", 0, 0, 0, 0, 0,
                 null, null, null, null

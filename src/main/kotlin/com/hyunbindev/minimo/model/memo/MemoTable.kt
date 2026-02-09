@@ -17,6 +17,5 @@ object MemoTable : Table("memo"){
 
     override val primaryKey = PrimaryKey(id)
 
-    val hashIndex = index(isUnique = true, hash)
     val memoIndex = index(isUnique = false, tabId, isDeleted, fixed)
 }

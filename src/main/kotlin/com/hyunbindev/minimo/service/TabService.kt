@@ -1,6 +1,8 @@
 package com.hyunbindev.minimo.service
 
+import com.hyunbindev.minimo.model.memo.MemoTable
 import com.hyunbindev.minimo.model.tab.TabData
+import com.hyunbindev.minimo.repository.MemoRepository
 import com.hyunbindev.minimo.repository.TabRepository
 import org.slf4j.LoggerFactory
 
@@ -29,6 +31,7 @@ object TabService {
         log.info("tabId: $tabId")
         try{
             TabRepository.deleteTab(tabId)
+            MemoRepository.deleteMomoInTab(tabId)
         }catch (e:Exception){
             log.error("탭 삭제 실패: ${e.message}",e)
         }

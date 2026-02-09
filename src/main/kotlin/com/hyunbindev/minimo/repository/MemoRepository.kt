@@ -6,6 +6,7 @@ import org.jetbrains.exposed.sql.ResultRow
 import org.jetbrains.exposed.sql.SortOrder
 import org.jetbrains.exposed.sql.SqlExpressionBuilder.eq
 import org.jetbrains.exposed.sql.andWhere
+import org.jetbrains.exposed.sql.deleteWhere
 import org.jetbrains.exposed.sql.insert
 import org.jetbrains.exposed.sql.selectAll
 import org.jetbrains.exposed.sql.statements.InsertStatement
@@ -34,5 +35,9 @@ object MemoRepository {
             .andWhere { MemoTable.isDeleted eq false }
             .orderBy( MemoTable.updatedAt to SortOrder.DESC )
             .map { MemoData.fromTable(it) }
+    }
+
+    fun deleteMomoInTab(tabId: Int) = transaction {
+        MemoTable.deleteWhere { MemoTable.tabId eq tabId }
     }
 }

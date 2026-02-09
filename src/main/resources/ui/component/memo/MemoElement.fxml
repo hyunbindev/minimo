@@ -8,6 +8,6 @@
          xmlns:fx="http://javafx.com/fxml"
          spacing="5"
          styleClass="Memo-Element">
-    <TextFlow fx:id="content"/>
+    <TextFlow fx:id="content" prefWidth="0" maxWidth="Infinity"/>
     <Label fx:id="updatedAt"/>
 </fx:root>
