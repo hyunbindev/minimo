@@ -31,6 +31,10 @@ object MemoViewModel {
         memoList.add(0,savedMemo)
     }
 
+    fun clearMemoList(){
+        memoList.clear()
+    }
+
     fun delete(selectedTabId: Int){
 
     }

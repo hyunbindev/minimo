@@ -58,12 +58,13 @@ class TabButton (val tabData: TabData): ToggleButton() {
     }
 
     fun playSpawnAnimation() {
-        val fade = FadeTransition(Duration.millis(300.0), this).apply {
+        val animationDuration = 150.0
+        val fade = FadeTransition(Duration.millis(animationDuration), this).apply {
             fromValue = 0.0
             toValue = 1.0
         }
 
-        val translate = TranslateTransition(Duration.millis(300.0), this).apply {
+        val translate = TranslateTransition(Duration.millis(animationDuration), this).apply {
             fromX = -30.0
             toX = 0.0
             interpolator = Interpolator.EASE_OUT // 끝날 때 부드럽게 감속
@@ -74,7 +75,8 @@ class TabButton (val tabData: TabData): ToggleButton() {
 
 
     fun playDeleteAnimation(onFinished: () -> Unit) {
-        val fade = FadeTransition(Duration.millis(250.0), this).apply {
+        val animationDuration = 150.0
+        val fade = FadeTransition(Duration.millis(animationDuration), this).apply {
             toValue = 0.0
         }
 

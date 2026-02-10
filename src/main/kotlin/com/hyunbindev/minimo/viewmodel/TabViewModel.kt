@@ -34,6 +34,9 @@ object TabViewModel {
 
     fun deleteTab(tabId: Int) {
         TabService.deleteTab(tabId)
+
+        if(selectedTabId.get() == tabId) MemoViewModel.clearMemoList()
+
         this.tabList.removeIf { it.id == tabId }
     }
 }

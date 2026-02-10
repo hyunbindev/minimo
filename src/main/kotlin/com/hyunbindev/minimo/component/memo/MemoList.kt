@@ -54,17 +54,13 @@ class MemoList : ScrollPane(){
             }
 
             if (removedItems.isNotEmpty()) {
-                log.info("${removedItems.size} removed item(s)")
                 Platform.runLater {
-                    // Get all current UI children that are MemoElements
                     val memoElements = this.container.children.filterIsInstance<MemoElement>()
 
-                    // Find the UI elements whose ID matches an ID in the removedItems list
                     val elementsToRemove = memoElements.filter { element ->
                         removedItems.any { removed -> removed.id == element.memoData.id }
                     }
 
-                    // Remove them from the parent container
                     this.container.children.removeAll(elementsToRemove)
                 }
             }
