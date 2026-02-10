@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory
 
 object WindowManager {
     private const val RESIZE_MARGIN = 10.0
+
     private val log = LoggerFactory.getLogger(WindowManager::class.java)
     private var fadeTransition: FadeTransition? = null
     private lateinit var PRIMARY_STAGE: Stage
@@ -17,6 +18,15 @@ object WindowManager {
         if(::PRIMARY_STAGE.isInitialized) return;
         this.PRIMARY_STAGE = primaryStage
         this.enableResizing(primaryStage)
+
+        val root = primaryStage.scene.root
+
+        if (root.minWidth(-1.0) > 0) {
+            primaryStage.minWidth = root.minWidth(-1.0)
+        }
+        if (root.minHeight(-1.0) > 0) {
+            primaryStage.minHeight = root.minHeight(-1.0)
+        }
 
         primaryStage.focusedProperty().addListener { _, _, isFocused ->
             if (isFocused) {
@@ -66,6 +76,7 @@ object WindowManager {
 
                 else -> Cursor.DEFAULT
             }
+
             scene.cursor = resizeCursor
         }
 

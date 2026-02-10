@@ -6,7 +6,11 @@
 <?import javafx.scene.control.ScrollPane?>
 <?import com.hyunbindev.minimo.component.memo.MemoList?>
 <?import com.hyunbindev.minimo.component.SideMenuBar?>
-<VBox fx:id="rootPane" alignment="TOP_CENTER" xmlns:fx="http://javafx.com/fxml">
+<VBox fx:id="rootPane"
+      alignment="TOP_CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      minHeight="400.0"
+      minWidth="300.0">
     <!-- title component -->
     <fx:include source="../../component/title-bar.fxml" />
 
