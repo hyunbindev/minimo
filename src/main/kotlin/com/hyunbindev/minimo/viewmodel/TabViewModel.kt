@@ -34,9 +34,18 @@ object TabViewModel {
 
     fun deleteTab(tabId: Int) {
         TabService.deleteTab(tabId)
+        val index = tabList.indexOfFirst { it.id == tabId }
+        if (index == -1) return // 없으면 종료
 
-        if(selectedTabId.get() == tabId) MemoViewModel.clearMemoList()
+        if (selectedTabId.get() == tabId) {
+            MemoViewModel.clearMemoList()
 
-        this.tabList.removeIf { it.id == tabId }
+            if (tabList.size > 1) {
+                val fallbackTab = if (index > 0) tabList[index - 1] else tabList[index + 1]
+                selectedTabId.set(fallbackTab.id)
+            }
+        }
+
+        tabList.removeAt(index)
     }
 }
