@@ -9,6 +9,7 @@ import com.hyunbindev.minimo.model.memo.MemoTable.id
 import com.hyunbindev.minimo.model.memo.MemoTable.tabId
 import com.hyunbindev.minimo.model.memo.MemoTable.type
 import com.hyunbindev.minimo.model.memo.MemoTable.updatedAt
+import javafx.scene.image.Image
 import org.jetbrains.exposed.sql.ResultRow
 import java.time.LocalDateTime
 
@@ -19,7 +20,8 @@ data class MemoData(
     val fixed:Boolean = false,
     val content:String,
     val updatedAt: LocalDateTime? = LocalDateTime.now(),
-    val hash:String
+    val hash:String,
+
 ){
     companion object{
         fun fromClipboard(clip: ClipBoardData, tabId: Int): MemoData{

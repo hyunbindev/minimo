@@ -26,6 +26,7 @@ object MemoRepository {
         }
         val row = insertStatement.resultedValues?.firstOrNull()
             ?: throw IllegalStateException("데이터 저장에 실패했습니다.")
+
         MemoData.fromTable(row)
     }
 

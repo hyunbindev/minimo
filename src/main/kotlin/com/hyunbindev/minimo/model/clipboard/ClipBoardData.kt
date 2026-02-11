@@ -1,5 +1,6 @@
 package com.hyunbindev.minimo.model.clipboard
 
+import javafx.scene.image.Image
 import java.security.MessageDigest
 
 data class ClipBoardData(
@@ -17,14 +18,14 @@ data class ClipBoardData(
                 ClipType.STRING -> {
                     val c = obj as String
                     ClipBoardData(
-                    type          = ClipType.STRING,
-                    stringContent = c,
-                    contentHash   = SHA256HASHING(c.toByteArray()),
+                    type               = ClipType.STRING,
+                    stringContent      = c,
+                    contentHash        = SHA256HASHING(c.toByteArray()),
                 )}
-
                 else -> null
             }
         }
+
         private fun SHA256HASHING(bytes: ByteArray):String{
             val md = MessageDigest.getInstance("SHA-256")
             md.update(bytes)
