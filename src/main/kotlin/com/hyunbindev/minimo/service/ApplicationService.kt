@@ -1,8 +1,9 @@
 package com.hyunbindev.minimo.service
 
-import com.hyunbindev.minimo.model.clipboard.ApplicationData
+import com.hyunbindev.minimo.model.application.ApplicationData
 
 interface ApplicationService {
-    fun isRegistered(applicationName:String):Boolean
-    fun getApplicationData(applicationName:String): ApplicationData
+    fun getApplicationData(applicationName:String): ApplicationData?
+
+    fun saveApplicationData(applicationData: ApplicationData)
 }

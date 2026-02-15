@@ -1,5 +1,6 @@
 package com.hyunbindev.minimo.core
 
+import com.hyunbindev.minimo.model.application.ApplicationData
 import com.hyunbindev.minimo.model.clipboard.ClipBoardData
 import com.hyunbindev.minimo.model.clipboard.ClipType
 import com.hyunbindev.minimo.viewmodel.MemoViewModel
@@ -39,9 +40,11 @@ object ClipboardCaptureManager {
 
         if(WindowManager.PID == focusedPid) return;
 
+        //application data
         getAppDetail(focusedPid)
 
         MemoViewModel.createMemoByClip(clipBoardData)
+
         lastContent=clipBoardData
     }
 
@@ -57,32 +60,40 @@ object ClipboardCaptureManager {
         return pidReference.value.toLong()
     }
 
-    fun getAppDetail(pid:Long){
+    fun getAppDetail(pid:Long): ApplicationData {
         val processHandle = Kernel32.INSTANCE.OpenProcess(WinNT.PROCESS_QUERY_INFORMATION or WinNT.PROCESS_VM_READ, false, pid.toInt())
+
+        //allocated applicationData by pid
+        val applicationData: ApplicationData = ApplicationData(pid = pid);
         if (processHandle != null) {
             val buffer = CharArray(1024)
 
             val len = Psapi.INSTANCE.GetModuleFileNameExW(processHandle, null, buffer, buffer.size)
 
             if (len > 0) {
+                //application installed path
                 val fullPath = String(buffer, 0, len)
-
+                //application name from description
                 val appDescriptionName = getAppDescriptionName(fullPath)
 
 
                 log.info("파일 경로: $fullPath")
                 log.info("앱 설명: $appDescriptionName")
             } else {
-                log.warn("경로를 가져오는 데 실패했습니다. PID: $pid")
+                log.warn("fail to load application data. PID: $pid")
             }
         }
 
         Kernel32.INSTANCE.CloseHandle(processHandle)
+
+        //return application data
+        return applicationData;
     }
 
-    fun getAppDescriptionName(filePath: String):String{
+    private fun getAppDescriptionName(filePath: String):String{
         val dwLen = Version.INSTANCE.GetFileVersionInfoSize(filePath, null)
         if (dwLen <= 0) return "정보 없음"
+
 
         val lpData = Memory(dwLen.toLong())
         if (!Version.INSTANCE.GetFileVersionInfo(filePath, 0, dwLen, lpData)) return "정보 읽기 실패"
@@ -103,7 +114,7 @@ object ClipboardCaptureManager {
         return "설명 없음"
     }
 
-    fun getAppIcon(filePath: String): Image?{
+    private fun getAppIcon(filePath: String): Image?{
         val file = File(filePath)
         if (!file.exists()) return null
 

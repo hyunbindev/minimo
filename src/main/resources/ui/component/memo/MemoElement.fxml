@@ -4,11 +4,19 @@
 <?import javafx.scene.layout.*?>
 
 <?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.image.ImageView?>
 <fx:root type="javafx.scene.layout.VBox"
          xmlns:fx="http://javafx.com/fxml"
          spacing="5"
          styleClass="Memo-Element">
     <TextFlow fx:id="content" prefWidth="0" maxWidth="Infinity"/>
+    <VBox>
+        <ImageView
+            fx:id="applicationIcon">
+        </ImageView>
+        <Label
+            fx:id="applicationDescriptionName"/>
+    </VBox>
     <Label fx:id="updatedAt"
            maxWidth="Infinity"
            alignment="CENTER_RIGHT"

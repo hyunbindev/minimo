@@ -1,14 +1,15 @@
 package com.hyunbindev.minimo.service
 
-import com.hyunbindev.minimo.model.clipboard.ApplicationData
+import com.hyunbindev.minimo.model.application.ApplicationData
+import com.hyunbindev.minimo.repository.ApplicationRepository
+
 
 object ApplicationServiceImpl : ApplicationService {
-
-    override fun isRegistered(applicationName: String): Boolean {
+    override fun getApplicationData(applicationName: String): ApplicationData? {
         TODO("Not yet implemented")
     }
 
-    override fun getApplicationData(applicationName: String): ApplicationData {
-        TODO("Not yet implemented")
+    override fun saveApplicationData(applicationData: ApplicationData) {
+        ApplicationRepository.createApplication(applicationData)
     }
 }
