@@ -1,15 +1,14 @@
 package com.hyunbindev.minimo.service
 
 import com.hyunbindev.minimo.model.application.ApplicationData
-import com.hyunbindev.minimo.repository.ApplicationRepository
-
+import javafx.scene.image.Image
 
 object ApplicationServiceImpl : ApplicationService {
-    override fun getApplicationData(applicationName: String): ApplicationData? {
+    override fun getApplication(pid: Long): ApplicationData? {
         TODO("Not yet implemented")
     }
 
-    override fun saveApplicationData(applicationData: ApplicationData) {
-        ApplicationRepository.createApplication(applicationData)
+    override fun getApplicationIcon(applicationData: ApplicationData): Image? {
+        TODO("Not yet implemented")
     }
 }
